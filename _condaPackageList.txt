@@ -182,8 +182,8 @@ pickleshare               0.7.4            py35h2f9f535_0
 pillow                    4.2.1            py35hd7da350_0  
 pip                       9.0.1            py35h691316f_4  
 pkginfo                   1.4.1            py35hb922f74_1  
-ply                       3.8                       <pip>
 ply                       3.10             py35hb60f152_0  
+ply                       3.8                       <pip>
 progress                  1.3              py35ha84af61_0  
 prompt_toolkit            1.0.15           py35h89c7cb4_0  
 protobuf                  3.4.0                     <pip>
