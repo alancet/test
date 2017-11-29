@@ -1,0 +1,6 @@
+# conda environments:
+#
+stdio                    C:\Program Files\Anaconda3\envs\stdio
+tensorflow               C:\Program Files\Anaconda3\envs\tensorflow
+root                  *  C:\Program Files\Anaconda3
+
