@@ -1,0 +1,7 @@
+[default]
+user = inner
+
+[info]
+mode = 0
+directory = dir
+
