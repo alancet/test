@@ -1,0 +1,109 @@
+# current best result
+
+## svc only. grid search
+
+param_grid = {'C': [0.001, 0.01, 0.1, 1, 10, 100],
+              'gamma': [0.001, 0.01, 0.1, 1, 10, 100]}
+
+#param_grid = [{'kernel': ['rbf'],
+#               'C': [0.001, 0.01, 0.1, 1, 10, 100],
+#               'gamma': [0.001, 0.01, 0.1, 1, 10, 100]},
+#              {'kernel': ['linear'],
+#               'C': [0.001, 0.01, 0.1, 1, 10, 100]}]
+
+grid_search = GridSearchCV(SVC(), param_grid, cv=5)
+#grid_search.fit(X_train, y_train)
+
+scores = cross_val_score(grid_search, X_train, y_train, cv=5)
+print("train", scores.mean())
+
+# cannot show grid_search attribute because using cross_val_score
+#print(grid_search.score(X_train, y_train))
+#print(grid_search.best_params_)
+
+
+
+
+# to get cv_results_, need to fit with data once
+
+grid_search.fit(X_train, y_train)
+
+plt.matshow(grid_search.cv_results_['mean_test_score'].reshape(6, -1),
+            vmin=0, cmap="viridis")
+plt.xlabel("C")
+plt.ylabel("gamma")
+plt.xticks(range(len(param_grid['C'])), param_grid['C'])
+plt.yticks(range(len(param_grid['gamma'])), param_grid['gamma'])
+plt.colorbar()
+
+
+print("best scroe: ", grid_search.best_score_)
+print("best estimator:", grid_search.best_estimator_)
+print("test: ", grid_search.score(X_test, y_test))
+
+
+
+
+
+
+train 0.8003734035987276
+best scroe:  0.8204697986577181
+best estimator: SVC(C=10, cache_size=200, class_weight=None, coef0=0.0,
+  decision_function_shape='ovr', degree=3, gamma=0.1, kernel='rbf',
+  max_iter=-1, probability=False, random_state=None, shrinking=True,
+  tol=0.001, verbose=False)
+test:  0.8067796610169492
+
+
+------------------------------------------------------------------------------------------
+
+
+# used one hot encoding for title
+param_grid = {'C': [0.001, 0.01, 0.1, 1, 10, 100],
+              'gamma': [0.001, 0.01, 0.1, 1, 10, 100]}
+
+#param_grid = [{'kernel': ['rbf'],
+#               'C': [0.001, 0.01, 0.1, 1, 10, 100],
+#               'gamma': [0.001, 0.01, 0.1, 1, 10, 100]},
+#              {'kernel': ['linear'],
+#               'C': [0.001, 0.01, 0.1, 1, 10, 100]}]
+
+grid_search = GridSearchCV(SVC(), param_grid, cv=5)
+#grid_search.fit(X_train, y_train)
+
+scores = cross_val_score(grid_search, X_train, y_train, cv=5)
+print("train", scores.mean())
+
+# cannot show grid_search attribute because using cross_val_score
+#print(grid_search.score(X_train, y_train))
+#print(grid_search.best_params_)
+
+
+
+
+# to get cv_results_, need to fit with data once
+
+grid_search.fit(X_train, y_train)
+
+plt.matshow(grid_search.cv_results_['mean_test_score'].reshape(6, -1),
+            vmin=0, cmap="viridis")
+plt.xlabel("C")
+plt.ylabel("gamma")
+plt.xticks(range(len(param_grid['C'])), param_grid['C'])
+plt.yticks(range(len(param_grid['gamma'])), param_grid['gamma'])
+plt.colorbar()
+
+
+print("best scroe: ", grid_search.best_score_)
+print("best estimator:", grid_search.best_estimator_)
+print("test: ", grid_search.score(X_test, y_test))
+
+
+
+train 0.8137765275601765
+best scroe:  0.8221476510067114
+best estimator: SVC(C=10, cache_size=200, class_weight=None, coef0=0.0,
+  decision_function_shape='ovr', degree=3, gamma=0.1, kernel='rbf',
+  max_iter=-1, probability=False, random_state=None, shrinking=True,
+  tol=0.001, verbose=False)
+test:  0.8101694915254237
