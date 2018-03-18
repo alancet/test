@@ -107,3 +107,64 @@ best estimator: SVC(C=10, cache_size=200, class_weight=None, coef0=0.0,
   max_iter=-1, probability=False, random_state=None, shrinking=True,
   tol=0.001, verbose=False)
 test:  0.8101694915254237
+
+
+
+-----
+
+# used only Parch, SibSp. no 'FamilySize', 'IsAlone'
+
+best scroe:  0.8322147651006712
+best estimator: Pipeline(memory=None,
+     steps=[('minmaxscaler', MinMaxScaler(copy=True, feature_range=(0, 1))), ('randomforestclassifier', RandomForestClassifier(bootstrap=True, class_weight=None, criterion='gini',
+            max_depth=None, max_features=1, max_leaf_nodes=None,
+            min_impurity_decrease=0.0, min_impurity_split=No...n_jobs=1,
+            oob_score=False, random_state=None, verbose=0,
+            warm_start=False))])
+best param: {'randomforestclassifier__max_depth': None, 'randomforestclassifier__max_features': 1, 'randomforestclassifier__min_samples_leaf': 2, 'randomforestclassifier__n_estimators': 300}
+test:  0.823728813559322
+
+
+-----
+# one hot encoding for Embarked
+but this is starnge. test score is better than train.
+
+train 0.8120960926743578
+best scroe:  0.8154362416107382
+best estimator: SVC(C=10, cache_size=200, class_weight=None, coef0=0.0,
+  decision_function_shape='ovr', degree=3, gamma=0.01, kernel='rbf',
+  max_iter=-1, probability=False, random_state=None, shrinking=True,
+  tol=0.001, verbose=False)
+test:  0.847457627118644
+
+
+
+-----
+
+# random forest with 6 fare band
+
+best scroe:  0.825503355704698
+best estimator: Pipeline(memory=None,
+     steps=[('minmaxscaler', MinMaxScaler(copy=True, feature_range=(0, 1))), ('randomforestclassifier', RandomForestClassifier(bootstrap=True, class_weight=None, criterion='gini',
+            max_depth=5, max_features='auto', max_leaf_nodes=None,
+            min_impurity_decrease=0.0, min_impurity_split=...n_jobs=1,
+            oob_score=False, random_state=None, verbose=0,
+            warm_start=False))])
+best param: {'randomforestclassifier__max_depth': 5, 'randomforestclassifier__max_features': 'auto', 'randomforestclassifier__min_samples_leaf': 2, 'randomforestclassifier__n_estimators': 50}
+test:  0.8406779661016949
+
+
+
+
+
+## if 4 fare band is used, the score of ranfore doesn't change
+
+best scroe:  0.8288590604026845
+best estimator: Pipeline(memory=None,
+     steps=[('minmaxscaler', MinMaxScaler(copy=True, feature_range=(0, 1))), ('randomforestclassifier', RandomForestClassifier(bootstrap=True, class_weight=None, criterion='gini',
+            max_depth=5, max_features='auto', max_leaf_nodes=None,
+            min_impurity_decrease=0.0, min_impurity_split=...n_jobs=1,
+            oob_score=False, random_state=None, verbose=0,
+            warm_start=False))])
+best param: {'randomforestclassifier__max_depth': 5, 'randomforestclassifier__max_features': 'auto', 'randomforestclassifier__min_samples_leaf': 2, 'randomforestclassifier__n_estimators': 100}
+test:  0.8406779661016949
