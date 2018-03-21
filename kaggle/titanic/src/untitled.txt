@@ -168,3 +168,14 @@ best estimator: Pipeline(memory=None,
             warm_start=False))])
 best param: {'randomforestclassifier__max_depth': 5, 'randomforestclassifier__max_features': 'auto', 'randomforestclassifier__min_samples_leaf': 2, 'randomforestclassifier__n_estimators': 100}
 test:  0.8406779661016949
+
+
+
+-----
+# simple svc
+Mean cross-validated score of the best_estimator:  0.8171140939597316
+best parameters: {'C': 1000, 'gamma': 0.001}
+test:  0.8440677966101695
+
+# robust scaler, svc
+これはコンスタントに性能良いな
