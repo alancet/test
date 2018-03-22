@@ -182,3 +182,27 @@ test:  0.8440677966101695
 
 but gradient boosting is better score in submission 0.79904
 
+
+----
+# current best 2018/03/22
+
+from 0.79904 by Gradient boosting
+
+----
+# try CabinBool
+
+getting worse for GradientBoosting
+from 0.79904 to 0.77990
+
+----
+# try Cabin_Letter
+
+get best test for pure svc
+
+Mean cross-validated score of the best_estimator:  0.815436241611
+best parameters: {'C': 10, 'gamma': 0.01}
+test:  0.847457627119
+
+but same as Cabin_Letter, getting worse for GradientBoosting
+from 0.79904 to 0.77990
+
