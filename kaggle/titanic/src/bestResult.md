@@ -39,3 +39,40 @@ grid_search.fit(X_train_df, y_train_df)
 
 Mean cross-validated score of the best_estimator:  0.8249158249158249
 best parameters: {'learning_rate': 0.01, 'max_depth': 3, 'n_estimators': 200}
+
+
+----
+
+# current testing model
+
+## GradientBoostingClassifier: 10 age band, parch&sibsp, embarked num category, rare title&map value
+
+- forgot to delete Cabin_Letter_0
+- Converting Embarked categorical feature to numeric
+- change rare title to "Rare" and map value
+
+0.75119
+
+## GradientBoostingClassifier: 10 age band, familysize, embarked num category, rare title&map value
+
+- use familysize
+
+
+
+## GradientBoostingClassifier: 10 age band, familysize, embarked num category, rare title&map value, no Name_Len
+
+- del Name_Len
+
+
+## GradientBoostingClassifier: 10 age band, familysize, embarked num category, rare title&map value, no Name_Len, no Ticket_Len
+
+- del Ticket_Len
+
+0.78468
+
+
+
+
+- [x] increase gradient boosting param : min_samples_leaf . add 4
+- [ ] make ticket null
+- [ ] 
