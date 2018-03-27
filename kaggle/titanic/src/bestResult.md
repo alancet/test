@@ -246,7 +246,7 @@ Rank|Score(std)|Params ['learning_rate', 'max_depth', 'max_features', 'min_sampl
 - [x] familysize
 - [x] embarked num category
 - [x] rare title&map value
-- [ ] no Name_Len
+- [x] no Name_Len
 - [x] no Ticket_Len
 - [x] one Cabin_Letter feature
 - [x] del Cabin_Num features
@@ -272,19 +272,7 @@ Rank|Score(std)|Params ['learning_rate', 'max_depth', 'max_features', 'min_sampl
 - [ ] back to AgeBand from 10 to 5
 - [ ] make bigger FareBand from 4 to 5
 - [x] try another title mapping. from 5 category(inc. rare) to 6 category(complete map rare to other title)
-
-mapping = {'Mlle': 'Miss', 
-            'Major': 'Mr', 
-            'Col': 'Mr', 
-            'Sir': 'Mr',
-            'Don': 'Mr', 
-            'Mme': 'Miss',
-            'Jonkheer': 'Mr',
-            'Lady': 'Mrs', 
-            'Capt': 'Mr', 
-            'Countess': 'Mrs',
-            'Ms': 'Miss',
-            'Dona': 'Mrs'}
-titles = ['Dr', 'Master', 'Miss', 'Mr', 'Mrs', 'Rev']
-
 - [ ] make title numerical feature including rare titles
+- [ ] try PolynomialFeatures(degree=2)
+  - pipe = make_pipeline(PolynomialFeatures(degree=2), RobustScaler(), SVC())
+- [ ] one hot encoding for importatnt feature, sex, pclass, title, age, 
