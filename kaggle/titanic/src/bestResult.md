@@ -396,7 +396,111 @@ Rank|Score(std)|Params ['learning_rate', 'max_depth', 'max_features', 'min_sampl
 
 
 
+## 5 GradientBoostingClassifier
 
+
+- age
+  - [x] 5 age band
+  - [ ] 10 age band
+- [x] Age_Null_Flag
+- family
+  - [x] familysize
+  - [ ] parch,sib
+  - [ ] isalone
+- embarked
+  - [ ] integer encoding
+  - [x] one hot encoding
+- Title
+  - [ ] keep rare title and integer encoding
+  - [ ] change rare title to "Rare" and integer encoding
+  - [ ] change rare title to "Rare" and one hot encoding
+  - [x] change some rare title to usual title, other rare title to "Rare" and one hot encoding
+- [ ] Name_Len
+- [ ] Ticket_Len
+- Cabin_Letter
+  - [ ] integer encoding
+  - [x] one hot encoding
+- Cabin_Num
+  - [x] no
+  - [ ] integer encoding
+  - [ ] one hot encoding
+- [x] Age*Class
+- [x] FareBand
+  - [x] 4 band
+
+
+
+best parameters: {'learning_rate': 0.02, 'max_depth': 5, 'max_features': 'log2', 'min_samples_split': 3, 'n_estimators': 100}
+Mean cross-validated score of the best_estimator:  0.8353293413173652
+test:  0.8295964125560538
+confusion matrix:  [[116  18]
+ [ 20  69]]
+
+Rank|Score(std)|Params ['learning_rate', 'max_depth', 'max_features', 'min_samples_split', 'n_estimators']
+1|0.835329(std:0.026122)|[0.02, 5, 'log2', 3, 100]
+1|0.835329(std:0.036101)|[0.05, 4, None, 6, 500]
+1|0.835329(std:0.027902)|[0.2, 4, 'log2', 4, 50]
+4|0.833832(std:0.018328)|[0.007, 5, 'log2', 5, 300]
+4|0.833832(std:0.024373)|[0.02, 4, 'log2', 4, 300]
+4|0.833832(std:0.027356)|[0.1, 5, 'log2', 5, 50]
+4|0.833832(std:0.023661)|[0.2, 4, 'log2', 6, 50]
+8|0.832335(std:0.020066)|[0.005, 6, 'log2', 4, 400]
+8|0.832335(std:0.020148)|[0.005, 6, 'log2', 5, 400]
+8|0.832335(std:0.025241)|[0.007, 4, 'log2', 3, 300]
+8|0.832335(std:0.022340)|[0.01, 4, 'log2', 5, 300]
+8|0.832335(std:0.021409)|[0.01, 5, 'log2', 5, 200]
+8|0.832335(std:0.020148)|[0.01, 5, 'log2', 6, 300]
+8|0.832335(std:0.024180)|[0.01, 6, 'log2', 6, 200]
+8|0.832335(std:0.026622)|[0.02, 5, 'log2', 4, 300]
+8|0.832335(std:0.023644)|[0.02, 6, 'log2', 4, 100]
+8|0.832335(std:0.015812)|[0.05, 4, 'log2', 2, 200]
+8|0.832335(std:0.020148)|[0.05, 5, 'log2', 6, 50]
+8|0.832335(std:0.035364)|[0.1, 3, None, 6, 500]
+8|0.832335(std:0.027883)|[0.1, 3, 'log2', 2, 200]
+8|0.832335(std:0.033048)|[0.1, 4, None, 6, 200]
+8|0.832335(std:0.026984)|[0.1, 5, 'log2', 4, 50]
+8|0.832335(std:0.030021)|[0.2, 3, 'sqrt', 4, 50]
+8|0.832335(std:0.037144)|[0.2, 4, None, 4, 100]
+8|0.832335(std:0.029084)|[0.2, 4, None, 5, 100]
+8|0.832335(std:0.037843)|[0.2, 5, 'log2', 3, 7]
+
+
+
+
+
+## 6 GradientBoostingClassifier
+
+what's next?
+
+
+- age
+  - [x] 5 age band
+  - [ ] 10 age band
+- [x] Age_Null_Flag
+- family
+  - [x] familysize
+  - [ ] parch,sib
+  - [ ] isalone
+- embarked
+  - [ ] integer encoding
+  - [x] one hot encoding
+- Title
+  - [ ] keep rare title and integer encoding
+  - [ ] change rare title to "Rare" and integer encoding
+  - [ ] change rare title to "Rare" and one hot encoding
+  - [x] change some rare title to usual title, other rare title to "Rare" and one hot encoding
+- [ ] Name_Len
+- [ ] Ticket_Len
+- Cabin_Letter
+  - [ ] integer encoding
+  - [x] one hot encoding
+- Cabin_Num
+  - [x] no
+  - [ ] integer encoding
+  - [ ] one hot encoding
+- [x] Age*Class
+- [x] FareBand
+  - [x] 4 band
 
 
 
@@ -418,3 +522,5 @@ Rank|Score(std)|Params ['learning_rate', 'max_depth', 'max_features', 'min_sampl
 - [ ] try PolynomialFeatures(degree=2)
   - pipe = make_pipeline(PolynomialFeatures(degree=2), RobustScaler(), SVC())
 - [ ] one hot encoding for importatnt feature, sex, pclass, title, age, 
+- [ ] make Embarked_Null_Flag after checked the survived rate of null row
+- [ ] make Fare_Null_Flag after checked the survived rate of null row
