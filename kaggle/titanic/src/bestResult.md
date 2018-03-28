@@ -240,11 +240,11 @@ Rank|Score(std)|Params ['learning_rate', 'max_depth', 'max_features', 'min_sampl
 
 
 
-## 1 GradientBoostingClassifier
+## 2 GradientBoostingClassifier
 
 - [x] 10 age band
 - [x] familysize
-- [x] embarked num category
+- [ ] embarked num category
 - [x] rare title&map value
 - [x] no Name_Len
 - [x] no Ticket_Len
@@ -252,6 +252,148 @@ Rank|Score(std)|Params ['learning_rate', 'max_depth', 'max_features', 'min_sampl
 - [x] del Cabin_Num features
 - [x] activate Age*Class again
 - [x] try another title mapping. from 5 category(inc. rare) to 6 category(complete map rare to other title)
+
+best parameters: {'learning_rate': 0.2, 'max_depth': 4, 'max_features': 'sqrt', 'min_samples_split': 3, 'n_estimators': 200}
+Mean cross-validated score of the best_estimator:  0.8413173652694611
+test:  0.8026905829596412
+confusion matrix:  [[111  23]
+ [ 21  68]]
+
+Rank|Score(std)|Params ['learning_rate', 'max_depth', 'max_features', 'min_samples_split', 'n_estimators']
+1|0.841317(std:0.035094)|[0.2, 4, 'sqrt', 3, 200]
+1|0.841317(std:0.040693)|[0.2, 5, 'log2', 3, 500]
+1|0.841317(std:0.044309)|[0.2, 6, 'log2', 4, 50]
+4|0.839820(std:0.042660)|[0.1, 5, 'log2', 4, 500]
+4|0.839820(std:0.038233)|[0.1, 7, 'sqrt', 3, 300]
+4|0.839820(std:0.038477)|[0.2, 4, 'sqrt', 2, 500]
+4|0.839820(std:0.043400)|[0.2, 5, 'sqrt', 5, 500]
+4|0.839820(std:0.035467)|[0.2, 5, 'log2', 6, 500]
+9|0.838323(std:0.032846)|[0.01, 3, 'log2', 4, 400]
+9|0.838323(std:0.031760)|[0.02, 3, 'sqrt', 2, 200]
+9|0.838323(std:0.035516)|[0.02, 4, 'log2', 2, 100]
+9|0.838323(std:0.031760)|[0.1, 3, 'sqrt', 2, 50]
+9|0.838323(std:0.023865)|[0.1, 3, 'sqrt', 3, 100]
+9|0.838323(std:0.034811)|[0.1, 4, 'sqrt', 4, 400]
+9|0.838323(std:0.038222)|[0.1, 4, 'log2', 6, 500]
+9|0.838323(std:0.038489)|[0.2, 3, 'sqrt', 3, 400]
+9|0.838323(std:0.028746)|[0.2, 3, 'log2', 3, 50]
+9|0.838323(std:0.030492)|[0.2, 4, 'sqrt', 3, 300]
+9|0.838323(std:0.032917)|[0.2, 4, 'sqrt', 4, 300]
+9|0.838323(std:0.040226)|[0.2, 4, 'log2', 3, 500]
+9|0.838323(std:0.044777)|[0.2, 5, 'sqrt', 3, 500]
+9|0.838323(std:0.049236)|[0.2, 5, 'log2', 4, 500]
+9|0.838323(std:0.038436)|[0.2, 5, 'log2', 6, 100]
+9|0.838323(std:0.039069)|[0.2, 6, 'sqrt', 5, 400]
+
+
+
+## 3 GradientBoostingClassifier
+
+
+- age
+  - [ ] 5 age band
+  - [x] 10 age band
+- family
+  - [x] familysize
+  - [ ] parch,sib
+  - [ ] isalone
+- embarked
+  - [ ] integer encoding
+  - [x] one hot encoding
+- Title
+  - [ ] keep rare title and integer encoding
+  - [ ] change rare title to "Rare" and integer encoding
+  - [ ] change rare title to "Rare" and one hot encoding
+  - [x] change some rare title to usual title, other rare title to "Rare" and one hot encoding
+- [ ] Name_Len
+- [ ] Ticket_Len
+- Cabin_Letter
+  - [x] integer encoding
+  - [ ] one hot encoding
+- Cabin_Num
+  - [x] no
+  - [ ] integer encoding
+  - [ ] one hot encoding
+- [x] Age*Class
+
+
+best parameters: {'learning_rate': 0.05, 'max_depth': 4, 'max_features': 'log2', 'min_samples_split': 2, 'n_estimators': 50}
+Mean cross-validated score of the best_estimator:  0.8413173652694611
+test:  0.8295964125560538
+confusion matrix:  [[121  13]
+ [ 25  64]]
+
+Rank|Score(std)|Params ['learning_rate', 'max_depth', 'max_features', 'min_samples_split', 'n_estimators']
+1|0.841317(std:0.032879)|[0.05, 4, 'log2', 2, 50]
+1|0.841317(std:0.031308)|[0.1, 4, 'sqrt', 4, 300]
+1|0.841317(std:0.028452)|[0.2, 3, 'sqrt', 2, 500]
+1|0.841317(std:0.037397)|[0.2, 4, 'sqrt', 4, 100]
+5|0.839820(std:0.036424)|[0.02, 4, 'sqrt', 6, 100]
+5|0.839820(std:0.028735)|[0.05, 4, 'log2', 4, 100]
+5|0.839820(std:0.028186)|[0.1, 5, 'sqrt', 5, 10]
+8|0.838323(std:0.032153)|[0.005, 4, 'sqrt', 2, 400]
+8|0.838323(std:0.036036)|[0.02, 6, 'sqrt', 6, 400]
+8|0.838323(std:0.028844)|[0.1, 4, 'log2', 4, 200]
+8|0.838323(std:0.030687)|[0.1, 4, 'log2', 5, 10]
+8|0.838323(std:0.038513)|[0.1, 4, 'log2', 6, 200]
+8|0.838323(std:0.032141)|[0.2, 3, 'sqrt', 2, 400]
+8|0.838323(std:0.029254)|[0.2, 4, 'log2', 3, 200]
+8|0.838323(std:0.036152)|[0.2, 4, 'log2', 3, 300]
+
+
+
+## 4 GradientBoostingClassifier
+
+
+- age
+  - [ ] 5 age band
+  - [x] 10 age band
+- family
+  - [x] familysize
+  - [ ] parch,sib
+  - [ ] isalone
+- embarked
+  - [ ] integer encoding
+  - [x] one hot encoding
+- Title
+  - [ ] keep rare title and integer encoding
+  - [ ] change rare title to "Rare" and integer encoding
+  - [ ] change rare title to "Rare" and one hot encoding
+  - [x] change some rare title to usual title, other rare title to "Rare" and one hot encoding
+- [ ] Name_Len
+- [ ] Ticket_Len
+- Cabin_Letter
+  - [ ] integer encoding
+  - [x] one hot encoding
+- Cabin_Num
+  - [x] no
+  - [ ] integer encoding
+  - [ ] one hot encoding
+- [x] Age*Class
+
+
+
+best parameters: {'learning_rate': 0.2, 'max_depth': 4, 'max_features': 'log2', 'min_samples_split': 6, 'n_estimators': 7}
+Mean cross-validated score of the best_estimator:  0.8413173652694611
+test:  0.820627802690583
+confusion matrix:  [[120  14]
+ [ 26  63]]
+
+Rank|Score(std)|Params ['learning_rate', 'max_depth', 'max_features', 'min_samples_split', 'n_estimators']
+1|0.841317(std:0.020392)|[0.2, 4, 'log2', 6, 7]
+2|0.838323(std:0.029889)|[0.005, 6, 'log2', 5, 500]
+2|0.838323(std:0.023627)|[0.05, 5, 'log2', 6, 50]
+2|0.838323(std:0.029022)|[0.05, 5, 'log2', 6, 100]
+2|0.838323(std:0.026800)|[0.1, 4, 'sqrt', 6, 10]
+2|0.838323(std:0.025506)|[0.2, 4, 'log2', 6, 10]
+2|0.838323(std:0.017545)|[0.2, 5, 'log2', 6, 10]
+8|0.836826(std:0.025457)|[0.005, 6, 'log2', 6, 500]
+8|0.836826(std:0.023403)|[0.1, 4, 'sqrt', 4, 500]
+8|0.836826(std:0.041012)|[0.2, 3, 'sqrt', 3, 400]
+8|0.836826(std:0.031987)|[0.2, 3, 'log2', 6, 300]
+
+
+
 
 
 
