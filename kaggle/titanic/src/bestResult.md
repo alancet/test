@@ -512,6 +512,80 @@ Name_Len
 
 
 
+
+
+
+
+
+## 7 GradientBoostingClassifier
+
+Ticket_Len
+
+0.78468
+->
+
+
+- age
+  - [x] 5 age band
+  - [ ] 10 age band
+- [x] Age_Null_Flag
+- family
+  - [x] familysize
+  - [ ] parch,sib
+  - [ ] isalone
+- embarked
+  - [ ] integer encoding
+  - [x] one hot encoding
+- Title
+  - [ ] keep rare title and integer encoding
+  - [ ] change rare title to "Rare" and integer encoding
+  - [ ] change rare title to "Rare" and one hot encoding
+  - [x] change some rare title to usual title, other rare title to "Rare" and one hot encoding
+- [x] Name_Len
+- [x] Ticket_Len
+- Cabin_Letter
+  - [ ] integer encoding
+  - [x] one hot encoding
+- Cabin_Num
+  - [x] no
+  - [ ] integer encoding
+  - [ ] one hot encoding
+- [x] Age*Class
+- [x] FareBand
+  - [x] 4 band
+
+
+
+best parameters: {'learning_rate': 0.2, 'max_depth': 5, 'max_features': 'log2', 'min_samples_split': 2, 'n_estimators': 10}
+Mean cross-validated score of the best_estimator:  0.8439597315436241
+test:  0.8271186440677966
+confusion matrix:  [[158  17]
+ [ 34  86]]
+
+Rank|Score(std)|Params ['learning_rate', 'max_depth', 'max_features', 'min_samples_split', 'n_estimators']
+1|0.843960(std:0.027599)|[0.2, 5, 'log2', 2, 10]
+2|0.840604(std:0.028880)|[0.2, 5, 'log2', 6, 10]
+3|0.838926(std:0.029746)|[0.005, 5, 'log2', 3, 400]
+3|0.838926(std:0.033294)|[0.007, 5, 'log2', 2, 300]
+3|0.838926(std:0.035046)|[0.01, 4, 'log2', 3, 300]
+3|0.838926(std:0.036377)|[0.02, 4, 'log2', 5, 200]
+3|0.838926(std:0.043581)|[0.2, 4, 'sqrt', 2, 7]
+8|0.837248(std:0.032774)|[0.005, 4, 'log2', 3, 400]
+8|0.837248(std:0.028473)|[0.005, 5, 'sqrt', 5, 400]
+8|0.837248(std:0.034388)|[0.007, 4, 'log2', 5, 400]
+8|0.837248(std:0.033632)|[0.007, 5, 'sqrt', 3, 300]
+8|0.837248(std:0.031074)|[0.007, 5, 'log2', 6, 400]
+8|0.837248(std:0.032162)|[0.01, 4, 'log2', 5, 300]
+8|0.837248(std:0.034610)|[0.01, 5, 'sqrt', 5, 200]
+8|0.837248(std:0.031240)|[0.01, 5, 'log2', 6, 200]
+8|0.837248(std:0.037844)|[0.05, 4, 'sqrt', 2, 50]
+8|0.837248(std:0.036250)|[0.1, 4, 'log2', 5, 50]
+8|0.837248(std:0.038352)|[0.2, 3, 'sqrt', 2, 50]
+8|0.837248(std:0.034560)|[0.2, 5, 'log2', 3, 10]
+
+
+
+
 ----
 
 # 
