@@ -520,10 +520,11 @@ Name_Len
 ## 7 GradientBoostingClassifier
 
 Ticket_Len
+clean up data
 
 0.78468
 ->
-
+0.74641
 
 - age
   - [x] 5 age band
@@ -555,33 +556,222 @@ Ticket_Len
   - [x] 4 band
 
 
-
-best parameters: {'learning_rate': 0.2, 'max_depth': 5, 'max_features': 'log2', 'min_samples_split': 2, 'n_estimators': 10}
-Mean cross-validated score of the best_estimator:  0.8439597315436241
-test:  0.8271186440677966
-confusion matrix:  [[158  17]
- [ 34  86]]
+best parameters: {'learning_rate': 0.005, 'max_depth': 5, 'max_features': 'sqrt', 'min_samples_split': 6, 'n_estimators': 400}
+Mean cross-validated score of the best_estimator:  0.8389261744966443
+test:  0.8406779661016949
+confusion matrix:  [[160  15]
+ [ 32  88]]
 
 Rank|Score(std)|Params ['learning_rate', 'max_depth', 'max_features', 'min_samples_split', 'n_estimators']
-1|0.843960(std:0.027599)|[0.2, 5, 'log2', 2, 10]
-2|0.840604(std:0.028880)|[0.2, 5, 'log2', 6, 10]
-3|0.838926(std:0.029746)|[0.005, 5, 'log2', 3, 400]
-3|0.838926(std:0.033294)|[0.007, 5, 'log2', 2, 300]
-3|0.838926(std:0.035046)|[0.01, 4, 'log2', 3, 300]
-3|0.838926(std:0.036377)|[0.02, 4, 'log2', 5, 200]
-3|0.838926(std:0.043581)|[0.2, 4, 'sqrt', 2, 7]
-8|0.837248(std:0.032774)|[0.005, 4, 'log2', 3, 400]
-8|0.837248(std:0.028473)|[0.005, 5, 'sqrt', 5, 400]
-8|0.837248(std:0.034388)|[0.007, 4, 'log2', 5, 400]
-8|0.837248(std:0.033632)|[0.007, 5, 'sqrt', 3, 300]
-8|0.837248(std:0.031074)|[0.007, 5, 'log2', 6, 400]
-8|0.837248(std:0.032162)|[0.01, 4, 'log2', 5, 300]
-8|0.837248(std:0.034610)|[0.01, 5, 'sqrt', 5, 200]
-8|0.837248(std:0.031240)|[0.01, 5, 'log2', 6, 200]
-8|0.837248(std:0.037844)|[0.05, 4, 'sqrt', 2, 50]
-8|0.837248(std:0.036250)|[0.1, 4, 'log2', 5, 50]
-8|0.837248(std:0.038352)|[0.2, 3, 'sqrt', 2, 50]
-8|0.837248(std:0.034560)|[0.2, 5, 'log2', 3, 10]
+1|0.838926(std:0.031249)|[0.005, 5, 'sqrt', 6, 400]
+2|0.837248(std:0.034610)|[0.005, 5, 'sqrt', 4, 400]
+2|0.837248(std:0.027113)|[0.005, 5, 'log2', 2, 300]
+2|0.837248(std:0.030703)|[0.007, 5, 'sqrt', 2, 300]
+2|0.837248(std:0.031240)|[0.007, 5, 'log2', 4, 300]
+2|0.837248(std:0.032080)|[0.01, 4, 'log2', 4, 300]
+2|0.837248(std:0.033710)|[0.02, 5, 'sqrt', 5, 100]
+2|0.837248(std:0.029727)|[0.02, 5, 'log2', 6, 100]
+2|0.837248(std:0.040008)|[0.05, 4, 'log2', 2, 50]
+10|0.835570(std:0.031355)|[0.005, 4, 'log2', 3, 400]
+10|0.835570(std:0.030404)|[0.005, 5, 'log2', 2, 400]
+10|0.835570(std:0.031582)|[0.005, 5, 'log2', 4, 300]
+10|0.835570(std:0.032066)|[0.005, 5, 'log2', 6, 500]
+10|0.835570(std:0.035535)|[0.007, 4, 'log2', 4, 400]
+10|0.835570(std:0.030321)|[0.007, 5, 'sqrt', 5, 300]
+10|0.835570(std:0.032503)|[0.007, 5, 'log2', 2, 300]
+10|0.835570(std:0.029937)|[0.007, 5, 'log2', 5, 300]
+10|0.835570(std:0.031983)|[0.007, 5, 'log2', 6, 400]
+10|0.835570(std:0.038453)|[0.01, 4, 'log2', 6, 400]
+10|0.835570(std:0.033779)|[0.01, 5, 'sqrt', 2, 200]
+10|0.835570(std:0.032503)|[0.01, 5, 'log2', 6, 200]
+
+
+
+## 8 GradientBoostingClassifier
+
+del Name_Len, Ticket_Len
+
+0.74641
+->
+
+
+
+- age
+  - [x] 5 age band
+  - [ ] 10 age band
+- [x] Age_Null_Flag
+- family
+  - [x] familysize
+  - [ ] parch,sib
+  - [ ] isalone
+- embarked
+  - [ ] integer encoding
+  - [x] one hot encoding
+- Title
+  - [ ] keep rare title and integer encoding
+  - [ ] change rare title to "Rare" and integer encoding
+  - [ ] change rare title to "Rare" and one hot encoding
+  - [x] change some rare title to usual title, other rare title to "Rare" and one hot encoding
+- [ ] Name_Len
+- [ ] Ticket_Len
+- Cabin_Letter
+  - [ ] integer encoding
+  - [x] one hot encoding
+- Cabin_Num
+  - [x] no
+  - [ ] integer encoding
+  - [ ] one hot encoding
+- [x] Age*Class
+- [x] FareBand
+  - [x] 4 band
+
+
+best parameters: {'learning_rate': 0.1, 'max_depth': 4, 'max_features': 'log2', 'min_samples_split': 5, 'n_estimators': 50}
+Mean cross-validated score of the best_estimator:  0.8389261744966443
+test:  0.823728813559322
+confusion matrix:  [[155  20]
+ [ 32  88]]
+
+Rank|Score(std)|Params ['learning_rate', 'max_depth', 'max_features', 'min_samples_split', 'n_estimators']
+1|0.838926(std:0.032683)|[0.1, 4, 'log2', 5, 50]
+1|0.838926(std:0.025813)|[0.2, 5, 'sqrt', 2, 10]
+3|0.837248(std:0.036250)|[0.01, 5, 'log2', 6, 200]
+3|0.837248(std:0.036250)|[0.05, 4, 'log2', 3, 50]
+3|0.837248(std:0.035011)|[0.2, 4, 'log2', 2, 50]
+6|0.835570(std:0.037786)|[0.007, 4, 'log2', 5, 400]
+6|0.835570(std:0.036091)|[0.02, 5, 'log2', 3, 100]
+6|0.835570(std:0.039745)|[0.1, 4, 'sqrt', 4, 50]
+6|0.835570(std:0.023415)|[0.1, 5, 'log2', 6, 50]
+6|0.835570(std:0.038305)|[0.2, 4, 'sqrt', 6, 10]
+
+
+
+## 9 GradientBoostingClassifier
+
+keep all family feature
+
+**not good**
+
+
+
+- age
+  - [x] 5 age band
+  - [ ] 10 age band
+- [x] Age_Null_Flag
+- family
+  - [x] familysize
+  - [x] parch,sib
+  - [x] isalone
+- embarked
+  - [ ] integer encoding
+  - [x] one hot encoding
+- Title
+  - [ ] keep rare title and integer encoding
+  - [ ] change rare title to "Rare" and integer encoding
+  - [ ] change rare title to "Rare" and one hot encoding
+  - [x] change some rare title to usual title, other rare title to "Rare" and one hot encoding
+- [ ] Name_Len
+- [ ] Ticket_Len
+- Cabin_Letter
+  - [ ] integer encoding
+  - [x] one hot encoding
+- Cabin_Num
+  - [x] no
+  - [ ] integer encoding
+  - [ ] one hot encoding
+- [x] Age*Class
+- [x] FareBand
+  - [x] 4 band
+
+
+
+best parameters: {'learning_rate': 0.2, 'max_depth': 5, 'max_features': 'sqrt', 'min_samples_split': 6, 'n_estimators': 10}
+Mean cross-validated score of the best_estimator:  0.8389261744966443
+test:  0.8169491525423729
+confusion matrix:  [[154  21]
+ [ 33  87]]
+
+Rank|Score(std)|Params ['learning_rate', 'max_depth', 'max_features', 'min_samples_split', 'n_estimators']
+1|0.838926(std:0.033381)|[0.2, 5, 'sqrt', 6, 10]
+2|0.835570(std:0.038600)|[0.02, 4, 'log2', 2, 100]
+3|0.832215(std:0.013889)|[0.005, 6, 'log2', 5, 200]
+3|0.832215(std:0.015007)|[0.007, 7, 'log2', 6, 100]
+3|0.832215(std:0.026738)|[0.01, 5, 'sqrt', 4, 100]
+3|0.832215(std:0.031944)|[0.2, 4, 'log2', 3, 10]
+7|0.830537(std:0.030607)|[0.005, 5, 'log2', 4, 300]
+7|0.830537(std:0.019537)|[0.005, 6, 'log2', 4, 200]
+7|0.830537(std:0.023661)|[0.01, 5, 'log2', 2, 100]
+7|0.830537(std:0.027483)|[0.02, 4, 'sqrt', 4, 100]
+7|0.830537(std:0.023549)|[0.2, 5, 'sqrt', 3, 10]
+7|0.830537(std:0.041031)|[0.2, 5, 'log2', 3, 10]
+7|0.830537(std:0.026733)|[0.2, 5, 'log2', 4, 7]
+
+
+
+
+
+
+## 10 GradientBoostingClassifier
+
+only familysize
+
+
+- age
+  - [x] 5 age band
+  - [ ] 10 age band
+- [x] Age_Null_Flag
+- family
+  - [x] familysize
+  - [ ] parch,sib
+  - [ ] isalone
+- embarked
+  - [ ] integer encoding
+  - [x] one hot encoding
+- Title
+  - [ ] keep rare title and integer encoding
+  - [ ] change rare title to "Rare" and integer encoding
+  - [ ] change rare title to "Rare" and one hot encoding
+  - [x] change some rare title to usual title, other rare title to "Rare" and one hot encoding
+- [ ] Name_Len
+- [ ] Ticket_Len
+- Cabin_Letter
+  - [ ] integer encoding
+  - [x] one hot encoding
+- Cabin_Num
+  - [x] no
+  - [ ] integer encoding
+  - [ ] one hot encoding
+- [x] Age*Class
+- [x] FareBand
+  - [x] 4 band
+
+
+
+
+
+
+
+best parameters: {'learning_rate': 0.1, 'max_depth': 3, 'max_features': 'log2', 'min_samples_split': 3, 'n_estimators': 100}
+Mean cross-validated score of the best_estimator:  0.8389261744966443
+test:  0.823728813559322
+confusion matrix:  [[155  20]
+ [ 32  88]]
+
+Rank|Score(std)|Params ['learning_rate', 'max_depth', 'max_features', 'min_samples_split', 'n_estimators']
+1|0.838926(std:0.034610)|[0.1, 3, 'log2', 3, 100]
+2|0.837248(std:0.032162)|[0.1, 6, 'log2', 6, 10]
+3|0.835570(std:0.033386)|[0.005, 4, 'log2', 4, 500]
+3|0.835570(std:0.045235)|[0.007, 3, 'log2', 6, 500]
+3|0.835570(std:0.031270)|[0.007, 4, 'sqrt', 3, 300]
+3|0.835570(std:0.043504)|[0.01, 3, 'log2', 2, 400]
+3|0.835570(std:0.042988)|[0.01, 3, 'log2', 3, 400]
+3|0.835570(std:0.039821)|[0.01, 3, 'log2', 5, 400]
+3|0.835570(std:0.037713)|[0.01, 4, 'sqrt', 5, 200]
+3|0.835570(std:0.035776)|[0.05, 4, 'log2', 6, 50]
+3|0.835570(std:0.039695)|[0.2, 4, 'sqrt', 6, 7]
+3|0.835570(std:0.027061)|[0.2, 6, 'sqrt', 3, 10]
+
+
 
 
 
