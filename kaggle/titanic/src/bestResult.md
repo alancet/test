@@ -833,6 +833,59 @@ Rank|Score(std)|Params ['learning_rate', 'max_depth', 'max_features', 'min_sampl
 
 
 
+# 12 random forest
+
+0.79425
+
+
+- age
+  - [x] 5 age band
+  - [ ] 10 age band
+- [x] Age_Null_Flag
+- family
+  - [x] familysize
+  - [x] parch,sib
+  - [x] isalone
+- embarked
+  - [ ] integer encoding
+  - [x] one hot encoding
+- Title
+  - [ ] keep rare title and integer encoding
+  - [ ] change rare title to "Rare" and integer encoding
+  - [ ] change rare title to "Rare" and one hot encoding
+  - [x] change some rare title to usual title, other rare title to "Rare" and one hot encoding
+- [x] Name_Len
+- [ ] Ticket_Len
+- Cabin_Letter
+  - [ ] integer encoding
+  - [x] one hot encoding
+- Cabin_Num
+  - [ ] no
+  - [ ] integer encoding
+  - [x] one hot encoding
+- [x] Age*Class
+- [x] FareBand
+  - [x] 4 band
+
+best parameters: {'randomforestclassifier__max_depth': 8, 'randomforestclassifier__max_features': 'log2', 'randomforestclassifier__min_samples_split': 3, 'randomforestclassifier__n_estimators': 10}
+Mean cross-validated score of the best_estimator:  0.8417508417508418
+Rank|Score(std)|Params ['randomforestclassifier__max_depth', 'randomforestclassifier__max_features', 'randomforestclassifier__min_samples_split', 'randomforestclassifier__n_estimators']
+1|0.841751(std:0.023075)|[8, 'log2', 3, 10]
+2|0.840629(std:0.018609)|[8, 1, 6, 50]
+3|0.839506(std:0.030570)|[8, 1, 5, 60]
+3|0.839506(std:0.029845)|[9, 1, 9, 60]
+5|0.838384(std:0.026129)|[7, 1, 5, 40]
+5|0.838384(std:0.037062)|[7, 1, 9, 300]
+5|0.838384(std:0.032934)|[8, 1, 9, 50]
+8|0.837262(std:0.025256)|[9, 1, 6, 100]
+9|0.836139(std:0.023981)|[7, 'sqrt', 3, 50]
+9|0.836139(std:0.009261)|[8, 1, 9, 100]
+9|0.836139(std:0.017224)|[8, 'sqrt', 8, 60]
+9|0.836139(std:0.024330)|[9, 1, 9, 100]
+
+
+
+
 
 
 ----
