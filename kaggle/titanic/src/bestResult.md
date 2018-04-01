@@ -867,6 +867,45 @@ Rank|Score(std)|Params ['learning_rate', 'max_depth', 'max_features', 'min_sampl
 - [x] FareBand
   - [x] 4 band
 
+
+## eval model
+
+best parameters: {'randomforestclassifier__max_depth': 7, 'randomforestclassifier__max_features': 'sqrt', 'randomforestclassifier__min_samples_split': 8, 'randomforestclassifier__n_estimators': 60}
+Mean cross-validated score of the best_estimator:  0.8422818791946308
+test:  0.8406779661016949
+confusion matrix:  [[159  16]
+ [ 31  89]]
+
+Rank|Score(std)|Params ['randomforestclassifier__max_depth', 'randomforestclassifier__max_features', 'randomforestclassifier__min_samples_split', 'randomforestclassifier__n_estimators']
+1|0.842282(std:0.037699)|[7, 'sqrt', 8, 60]
+2|0.838926(std:0.039486)|[6, 'log2', 6, 20]
+2|0.838926(std:0.037935)|[6, 'log2', 7, 300]
+2|0.838926(std:0.033637)|[7, 'sqrt', 9, 200]
+2|0.838926(std:0.025510)|[7, 'log2', 4, 50]
+2|0.838926(std:0.031249)|[7, 'log2', 9, 700]
+2|0.838926(std:0.030510)|[9, 'sqrt', 9, 200]
+8|0.837248(std:0.036467)|[5, 'sqrt', 5, 50]
+8|0.837248(std:0.036250)|[6, 'sqrt', 6, 700]
+8|0.837248(std:0.032517)|[6, 'sqrt', 9, 100]
+8|0.837248(std:0.033792)|[6, 'log2', 4, 30]
+8|0.837248(std:0.036250)|[6, 'log2', 4, 700]
+8|0.837248(std:0.027113)|[6, 'log2', 5, 30]
+8|0.837248(std:0.028384)|[7, 'sqrt', 6, 40]
+8|0.837248(std:0.034560)|[7, 'sqrt', 6, 500]
+8|0.837248(std:0.033104)|[7, 'sqrt', 8, 200]
+8|0.837248(std:0.034636)|[7, 'sqrt', 8, 500]
+8|0.837248(std:0.032517)|[7, 'sqrt', 9, 300]
+8|0.837248(std:0.041304)|[7, 'log2', 7, 40]
+8|0.837248(std:0.032162)|[7, 'log2', 7, 300]
+8|0.837248(std:0.032162)|[7, 'log2', 8, 300]
+8|0.837248(std:0.037020)|[7, 'log2', 8, 500]
+8|0.837248(std:0.022276)|[8, 1, 3, 100]
+8|0.837248(std:0.024014)|[8, 'sqrt', 4, 20]
+8|0.837248(std:0.033792)|[8, 'sqrt', 7, 40]
+
+
+## submission
+
 best parameters: {'randomforestclassifier__max_depth': 8, 'randomforestclassifier__max_features': 'log2', 'randomforestclassifier__min_samples_split': 3, 'randomforestclassifier__n_estimators': 10}
 Mean cross-validated score of the best_estimator:  0.8417508417508418
 Rank|Score(std)|Params ['randomforestclassifier__max_depth', 'randomforestclassifier__max_features', 'randomforestclassifier__min_samples_split', 'randomforestclassifier__n_estimators']
