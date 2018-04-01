@@ -773,6 +773,65 @@ Rank|Score(std)|Params ['learning_rate', 'max_depth', 'max_features', 'min_sampl
 
 
 
+## 11 GradientBoostingClassifier
+
+
+activate Name_Len, Cabin_Num
+
+
+- age
+  - [x] 5 age band
+  - [ ] 10 age band
+- [x] Age_Null_Flag
+- family
+  - [x] familysize
+  - [ ] parch,sib
+  - [ ] isalone
+- embarked
+  - [ ] integer encoding
+  - [x] one hot encoding
+- Title
+  - [ ] keep rare title and integer encoding
+  - [ ] change rare title to "Rare" and integer encoding
+  - [ ] change rare title to "Rare" and one hot encoding
+  - [x] change some rare title to usual title, other rare title to "Rare" and one hot encoding
+- [x] Name_Len
+- [ ] Ticket_Len
+- Cabin_Letter
+  - [ ] integer encoding
+  - [x] one hot encoding
+- Cabin_Num
+  - [ ] no
+  - [ ] integer encoding
+  - [x] one hot encoding
+- [x] Age*Class
+- [x] FareBand
+  - [x] 4 band
+
+
+
+best parameters: {'learning_rate': 0.007, 'max_depth': 4, 'max_features': 'log2', 'min_samples_split': 6, 'n_estimators': 400}
+Mean cross-validated score of the best_estimator:  0.8456375838926175
+test:  0.8271186440677966
+confusion matrix:  [[156  19]
+ [ 32  88]]
+
+Rank|Score(std)|Params ['learning_rate', 'max_depth', 'max_features', 'min_samples_split', 'n_estimators']
+1|0.845638(std:0.040610)|[0.007, 4, 'log2', 6, 400]
+2|0.843960(std:0.037780)|[0.007, 4, 'log2', 3, 400]
+2|0.843960(std:0.036237)|[0.01, 5, 'log2', 6, 200]
+2|0.843960(std:0.044345)|[0.05, 4, 'log2', 3, 50]
+5|0.842282(std:0.039675)|[0.005, 4, 'log2', 4, 500]
+6|0.840604(std:0.042189)|[0.005, 4, 'sqrt', 2, 500]
+6|0.840604(std:0.042669)|[0.005, 5, 'log2', 5, 400]
+6|0.840604(std:0.035105)|[0.007, 4, 'sqrt', 3, 300]
+6|0.840604(std:0.036326)|[0.007, 4, 'sqrt', 6, 400]
+6|0.840604(std:0.040684)|[0.007, 4, 'log2', 5, 400]
+6|0.840604(std:0.042787)|[0.01, 4, 'sqrt', 5, 200]
+6|0.840604(std:0.036326)|[0.01, 4, 'log2', 5, 300]
+
+
+
 
 
 
@@ -794,3 +853,38 @@ Rank|Score(std)|Params ['learning_rate', 'max_depth', 'max_features', 'min_sampl
 - [ ] one hot encoding for importatnt feature, sex, pclass, title, age, 
 - [ ] make Embarked_Null_Flag after checked the survived rate of null row
 - [ ] make Fare_Null_Flag after checked the survived rate of null row
+
+
+--------------
+
+best parameters: {'randomforestclassifier__max_depth': 6, 'randomforestclassifier__max_features': 'log2', 'randomforestclassifier__min_samples_split': 4, 'randomforestclassifier__n_estimators': 50}
+Mean cross-validated score of the best_estimator:  0.8489932885906041
+test:  0.823728813559322
+confusion matrix:  [[155  20]
+ [ 32  88]]
+
+Rank|Score(std)|Params ['randomforestclassifier__max_depth', 'randomforestclassifier__max_features', 'randomforestclassifier__min_samples_split', 'randomforestclassifier__n_estimators']
+1|0.848993(std:0.046491)|[6, 'log2', 4, 50]
+2|0.843960(std:0.039970)|[6, 'log2', 4, 100]
+3|0.842282(std:0.041300)|[7, 'log2', 7, 200]
+4|0.840604(std:0.040881)|[6, 'sqrt', 2, 300]
+4|0.840604(std:0.044927)|[6, 'log2', 4, 60]
+4|0.840604(std:0.042264)|[7, 'sqrt', 9, 50]
+4|0.840604(std:0.032248)|[8, 1, 3, 40]
+4|0.840604(std:0.034719)|[8, 'sqrt', 7, 20]
+9|0.838926(std:0.037778)|[6, 'sqrt', 2, 100]
+9|0.838926(std:0.037009)|[6, 'sqrt', 6, 300]
+9|0.838926(std:0.037778)|[6, 'sqrt', 7, 500]
+9|0.838926(std:0.039189)|[6, 'log2', 3, 100]
+9|0.838926(std:0.037403)|[6, 'log2', 4, 300]
+9|0.838926(std:0.037403)|[6, 'log2', 7, 500]
+9|0.838926(std:0.041016)|[6, 'log2', 9, 200]
+9|0.838926(std:0.039335)|[7, 'log2', 3, 40]
+9|0.838926(std:0.037935)|[8, 1, 7, 500]
+9|0.838926(std:0.035690)|[8, 1, 9, 500]
+
+
+
+SelectPercentile(percentile=50)
+
+
