@@ -926,6 +926,342 @@ Rank|Score(std)|Params ['randomforestclassifier__max_depth', 'randomforestclassi
 
 
 
+# 13 random forest
+
+reduce so many features except very important features
+
+almost no effect to score. 
+it means these features are not so important...
+
+
+- age
+  - [x] 5 age band
+  - [ ] 10 age band
+- [ ] Age_Null_Flag
+- family
+  - [x] familysize
+  - [ ] parch,sib
+  - [ ] isalone
+- [ ] embarked
+  - [ ] integer encoding
+  - [ ] one hot encoding
+- [ ] Title
+  - [ ] keep rare title and integer encoding
+  - [ ] change rare title to "Rare" and integer encoding
+  - [ ] change rare title to "Rare" and one hot encoding
+  - [ ] change some rare title to usual title, other rare title to "Rare" and one hot encoding
+- [ ] Name_Len
+- [ ] Ticket_Len
+- [x] Cabin_Letter
+  - [ ] integer encoding
+  - [x] one hot encoding
+- [ ] Cabin_Num
+  - [ ] no
+  - [ ] integer encoding
+  - [ ] one hot encoding
+- [ ] Age*Class
+- [x] Fare
+  - [x] 4 band
+
+
+
+
+## eval model
+
+
+
+## submission
+
+
+
+# 14 gradient boosting
+
+Add Family_Survival feature
+
+Age 	FamilySize 	Family_Survival 	Fare 	PassengerId 	Pclass 	Sex
+
+
+0.81339
+by gradient boosting
+
+- age
+  - [x] 5 age band
+  - [ ] 10 age band
+- [ ] Age_Null_Flag
+- family
+  - [x] familysize
+  - [ ] parch,sib
+  - [ ] isalone
+- [ ] embarked
+  - [ ] integer encoding
+  - [ ] one hot encoding
+- [ ] Title
+  - [ ] keep rare title and integer encoding
+  - [ ] change rare title to "Rare" and integer encoding
+  - [ ] change rare title to "Rare" and one hot encoding
+  - [ ] change some rare title to usual title, other rare title to "Rare" and one hot encoding
+- [ ] Name_Len
+- [ ] Ticket_Len
+- [x] Cabin_Letter
+  - [ ] integer encoding
+  - [x] one hot encoding
+- [ ] Cabin_Num
+  - [ ] no
+  - [ ] integer encoding
+  - [ ] one hot encoding
+- [ ] Age*Class
+- [x] Fare
+  - [x] 4 band
+- [x] Family_Survival
+
+
+
+
+## eval model
+
+### SVC, robust
+
+**First time to get a score higher than 0.86 !!**
+
+best parameters: {'svc__C': 100, 'svc__gamma': 0.05}
+Mean cross-validated score of the best_estimator:  0.8355704697986577
+test:  0.864406779661017
+confusion matrix:  [[165  10]
+ [ 30  90]]
+
+Rank|Score(std)|Params ['svc__C', 'svc__gamma']
+1|0.835570(std:0.043700)|[100, 0.05]
+1|0.835570(std:0.045218)|[500, 0.03]
+3|0.832215(std:0.044323)|[50, 0.04]
+3|0.832215(std:0.041167)|[80, 0.05]
+3|0.832215(std:0.044323)|[90, 0.03]
+3|0.832215(std:0.041167)|[90, 0.05]
+3|0.832215(std:0.039307)|[1000, 0.01]
+8|0.830537(std:0.042918)|[10, 0.1]
+8|0.830537(std:0.044461)|[30, 0.05]
+8|0.830537(std:0.042918)|[70, 0.05]
+8|0.830537(std:0.044461)|[90, 0.04]
+8|0.830537(std:0.046558)|[100, 0.03]
+8|0.830537(std:0.044461)|[100, 0.04]
+8|0.830537(std:0.039462)|[500, 0.01]
+8|0.830537(std:0.039462)|[1000, 0.008]
+
+
+
+### svc, standard scaler
+
+**score was 0.87.. so high**
+
+best parameters: {'svc__C': 10, 'svc__gamma': 0.04}
+Mean cross-validated score of the best_estimator:  0.8322147651006712
+test:  0.8711864406779661
+confusion matrix:  [[167   8]
+ [ 30  90]]
+
+Rank|Score(std)|Params ['svc__C', 'svc__gamma']
+1|0.832215(std:0.044375)|[10, 0.04]
+2|0.828859(std:0.038708)|[1, 0.1]
+2|0.828859(std:0.042616)|[30, 0.03]
+2|0.828859(std:0.038755)|[30, 0.05]
+2|0.828859(std:0.025254)|[70, 0.1]
+2|0.828859(std:0.037744)|[500, 0.01]
+2|0.828859(std:0.040311)|[1000, 0.008]
+8|0.827181(std:0.040471)|[50, 0.04]
+8|0.827181(std:0.024540)|[50, 0.1]
+8|0.827181(std:0.038744)|[80, 0.03]
+8|0.827181(std:0.042261)|[90, 0.03]
+8|0.827181(std:0.042261)|[100, 0.03]
+8|0.827181(std:0.042261)|[1000, 0.01]
+
+
+
+### random forest
+
+
+best parameters: {'randomforestclassifier__max_depth': 8, 'randomforestclassifier__max_features': 'sqrt', 'randomforestclassifier__min_samples_split': 4, 'randomforestclassifier__n_estimators': 30}
+Mean cross-validated score of the best_estimator:  0.8406040268456376
+test:  0.8406779661016949
+confusion matrix:  [[160  15]
+ [ 32  88]]
+
+Rank|Score(std)|Params ['randomforestclassifier__max_depth', 'randomforestclassifier__max_features', 'randomforestclassifier__min_samples_split', 'randomforestclassifier__n_estimators']
+1|0.840604(std:0.026401)|[8, 'sqrt', 4, 30]
+2|0.838926(std:0.035513)|[5, 'sqrt', 3, 50]
+2|0.838926(std:0.030419)|[7, 1, 6, 300]
+2|0.838926(std:0.030419)|[7, 'log2', 9, 50]
+5|0.837248(std:0.045751)|[6, 'log2', 4, 30]
+5|0.837248(std:0.028062)|[7, 1, 3, 200]
+5|0.837248(std:0.023744)|[7, 'log2', 5, 60]
+5|0.837248(std:0.023256)|[7, 'log2', 6, 30]
+5|0.837248(std:0.027005)|[8, 'sqrt', 6, 20]
+5|0.837248(std:0.038761)|[8, 'sqrt', 9, 20]
+
+
+variable 	importance
+5 	Sex 	0.399386
+2 	Family_Survival 	0.141263
+4 	Pclass 	0.135416
+1 	FamilySize 	0.125451
+0 	Age 	0.105186
+3 	Fare 	0.093299
+
+**this is not so high result...why...**
+but apparently Family_Survival is important feature.
+
+
+
+### gradient boosting
+
+best parameters: {'learning_rate': 0.02, 'max_depth': 4, 'max_features': 'log2', 'min_samples_split': 4, 'n_estimators': 300}
+Mean cross-validated score of the best_estimator:  0.8389261744966443
+test:  0.847457627118644
+confusion matrix:  [[163  12]
+ [ 33  87]]
+
+Rank|Score(std)|Params ['learning_rate', 'max_depth', 'max_features', 'min_samples_split', 'n_estimators']
+1|0.838926(std:0.023766)|[0.02, 4, 'log2', 4, 300]
+1|0.838926(std:0.039294)|[0.1, 3, 'log2', 2, 50]
+3|0.837248(std:0.036746)|[0.02, 3, 'sqrt', 3, 300]
+3|0.837248(std:0.021329)|[0.02, 4, 'log2', 2, 300]
+3|0.837248(std:0.043168)|[0.1, 3, 'log2', 4, 50]
+6|0.835570(std:0.042747)|[0.007, 3, 'sqrt', 6, 500]
+6|0.835570(std:0.019167)|[0.007, 5, 'sqrt', 5, 400]
+6|0.835570(std:0.019167)|[0.007, 5, 'log2', 4, 400]
+6|0.835570(std:0.042747)|[0.01, 3, 'sqrt', 3, 400]
+6|0.835570(std:0.037892)|[0.01, 3, 'sqrt', 3, 500]
+6|0.835570(std:0.042747)|[0.01, 3, 'sqrt', 4, 500]
+6|0.835570(std:0.042747)|[0.01, 3, 'sqrt', 6, 400]
+6|0.835570(std:0.037892)|[0.01, 3, 'log2', 3, 500]
+6|0.835570(std:0.037892)|[0.01, 3, 'log2', 6, 500]
+6|0.835570(std:0.028545)|[0.01, 4, 'sqrt', 6, 500]
+6|0.835570(std:0.028545)|[0.01, 4, 'log2', 2, 500]
+6|0.835570(std:0.028545)|[0.01, 4, 'log2', 3, 500]
+6|0.835570(std:0.030142)|[0.01, 5, 'sqrt', 2, 400]
+6|0.835570(std:0.019167)|[0.01, 5, 'sqrt', 4, 300]
+6|0.835570(std:0.042747)|[0.02, 3, 'sqrt', 4, 200]
+6|0.835570(std:0.042747)|[0.02, 3, 'log2', 2, 200]
+6|0.835570(std:0.042747)|[0.02, 3, 'log2', 6, 200]
+6|0.835570(std:0.037892)|[0.05, 3, 'sqrt', 2, 100]
+6|0.835570(std:0.037892)|[0.05, 3, 'sqrt', 3, 100]
+6|0.835570(std:0.040449)|[0.05, 3, 'log2', 5, 100]
+6|0.835570(std:0.033533)|[0.05, 4, 'sqrt', 6, 100]
+6|0.835570(std:0.017753)|[0.05, 4, 'log2', 6, 100]
+6|0.835570(std:0.037892)|[0.1, 3, 'sqrt', 3, 50]
+
+
+
+## submission
+
+### gradient boosting
+
+best parameters: {'learning_rate': 0.005, 'max_depth': 4, 'max_features': None, 'min_samples_split': 2, 'n_estimators': 300}
+Mean cross-validated score of the best_estimator:  0.8507295173961841
+Rank|Score(std)|Params ['learning_rate', 'max_depth', 'max_features', 'min_samples_split', 'n_estimators']
+1|0.850730(std:0.021999)|[0.005, 4, None, 2, 300]
+1|0.850730(std:0.021999)|[0.005, 4, None, 3, 300]
+1|0.850730(std:0.021999)|[0.005, 4, None, 4, 300]
+1|0.850730(std:0.021999)|[0.005, 4, None, 5, 300]
+1|0.850730(std:0.021999)|[0.005, 4, None, 6, 300]
+1|0.850730(std:0.020023)|[0.02, 5, 'sqrt', 2, 50]
+1|0.850730(std:0.018184)|[0.1, 6, 'sqrt', 5, 7]
+1|0.850730(std:0.016036)|[0.1, 6, 'sqrt', 6, 10]
+1|0.850730(std:0.016475)|[0.1, 7, 'log2', 4, 7]
+10|0.849607(std:0.021661)|[0.005, 3, None, 2, 200]
+10|0.849607(std:0.021661)|[0.005, 3, None, 2, 300]
+10|0.849607(std:0.021661)|[0.005, 3, None, 2, 400]
+10|0.849607(std:0.021661)|[0.005, 3, None, 3, 200]
+10|0.849607(std:0.021661)|[0.005, 3, None, 3, 300]
+10|0.849607(std:0.021661)|[0.005, 3, None, 3, 400]
+10|0.849607(std:0.021661)|[0.005, 3, None, 4, 200]
+10|0.849607(std:0.021661)|[0.005, 3, None, 4, 300]
+10|0.849607(std:0.021661)|[0.005, 3, None, 4, 400]
+10|0.849607(std:0.021661)|[0.005, 3, None, 5, 200]
+10|0.849607(std:0.021661)|[0.005, 3, None, 5, 300]
+10|0.849607(std:0.021661)|[0.005, 3, None, 5, 400]
+10|0.849607(std:0.021661)|[0.005, 3, None, 6, 200]
+10|0.849607(std:0.021661)|[0.005, 3, None, 6, 300]
+10|0.849607(std:0.021661)|[0.005, 3, None, 6, 400]
+10|0.849607(std:0.020426)|[0.005, 3, 'log2', 3, 400]
+10|0.849607(std:0.021661)|[0.005, 4, None, 2, 200]
+10|0.849607(std:0.021661)|[0.005, 4, None, 3, 200]
+10|0.849607(std:0.021661)|[0.005, 4, None, 4, 200]
+10|0.849607(std:0.021661)|[0.005, 4, None, 5, 200]
+10|0.849607(std:0.021661)|[0.005, 4, None, 6, 200]
+10|0.849607(std:0.021661)|[0.007, 3, None, 2, 200]
+10|0.849607(std:0.021661)|[0.007, 3, None, 2, 300]
+10|0.849607(std:0.021661)|[0.007, 3, None, 3, 200]
+10|0.849607(std:0.021661)|[0.007, 3, None, 3, 300]
+10|0.849607(std:0.021661)|[0.007, 3, None, 4, 200]
+10|0.849607(std:0.021661)|[0.007, 3, None, 4, 300]
+10|0.849607(std:0.021661)|[0.007, 3, None, 5, 200]
+10|0.849607(std:0.021661)|[0.007, 3, None, 5, 300]
+10|0.849607(std:0.021661)|[0.007, 3, None, 6, 200]
+10|0.849607(std:0.021661)|[0.007, 3, None, 6, 300]
+10|0.849607(std:0.020426)|[0.007, 3, 'log2', 6, 300]
+10|0.849607(std:0.021661)|[0.007, 4, None, 2, 200]
+10|0.849607(std:0.021661)|[0.007, 4, None, 3, 200]
+10|0.849607(std:0.021661)|[0.007, 4, None, 4, 200]
+10|0.849607(std:0.021661)|[0.007, 4, None, 5, 200]
+10|0.849607(std:0.021661)|[0.007, 4, None, 6, 200]
+10|0.849607(std:0.021661)|[0.01, 3, None, 2, 100]
+10|0.849607(std:0.021661)|[0.01, 3, None, 3, 100]
+10|0.849607(std:0.021661)|[0.01, 3, None, 3, 200]
+10|0.849607(std:0.021661)|[0.01, 3, None, 4, 100]
+10|0.849607(std:0.021661)|[0.01, 3, None, 4, 200]
+10|0.849607(std:0.021661)|[0.01, 3, None, 5, 100]
+10|0.849607(std:0.021661)|[0.01, 3, None, 6, 100]
+10|0.849607(std:0.021661)|[0.01, 3, None, 6, 200]
+10|0.849607(std:0.020426)|[0.01, 3, 'sqrt', 6, 200]
+10|0.849607(std:0.020426)|[0.01, 3, 'log2', 3, 200]
+10|0.849607(std:0.021661)|[0.01, 4, None, 2, 100]
+10|0.849607(std:0.021661)|[0.01, 4, None, 3, 100]
+10|0.849607(std:0.021661)|[0.01, 4, None, 4, 100]
+10|0.849607(std:0.021661)|[0.01, 4, None, 5, 100]
+10|0.849607(std:0.021661)|[0.01, 4, None, 6, 100]
+10|0.849607(std:0.021661)|[0.02, 3, None, 2, 50]
+10|0.849607(std:0.021661)|[0.02, 3, None, 3, 50]
+10|0.849607(std:0.021661)|[0.02, 3, None, 4, 50]
+10|0.849607(std:0.021661)|[0.02, 3, None, 5, 50]
+10|0.849607(std:0.021661)|[0.02, 3, None, 6, 50]
+10|0.849607(std:0.021661)|[0.02, 3, None, 6, 100]
+10|0.849607(std:0.020426)|[0.02, 3, 'sqrt', 4, 100]
+10|0.849607(std:0.021661)|[0.02, 4, None, 2, 50]
+10|0.849607(std:0.021661)|[0.02, 4, None, 3, 50]
+10|0.849607(std:0.021661)|[0.02, 4, None, 4, 50]
+10|0.849607(std:0.021661)|[0.02, 4, None, 5, 50]
+10|0.849607(std:0.021661)|[0.02, 4, None, 6, 50]
+10|0.849607(std:0.021661)|[0.1, 3, None, 2, 10]
+10|0.849607(std:0.021661)|[0.1, 3, None, 3, 10]
+10|0.849607(std:0.021661)|[0.1, 3, None, 4, 10]
+10|0.849607(std:0.021661)|[0.1, 3, None, 5, 10]
+10|0.849607(std:0.021661)|[0.1, 3, None, 6, 10]
+10|0.849607(std:0.021661)|[0.1, 4, None, 2, 10]
+10|0.849607(std:0.021661)|[0.1, 4, None, 3, 10]
+10|0.849607(std:0.021661)|[0.1, 4, None, 4, 10]
+10|0.849607(std:0.021661)|[0.1, 4, None, 5, 10]
+10|0.849607(std:0.021661)|[0.1, 4, None, 6, 10]
+10|0.849607(std:0.021661)|[0.2, 3, None, 2, 7]
+10|0.849607(std:0.021661)|[0.2, 3, None, 2, 10]
+10|0.849607(std:0.021661)|[0.2, 3, None, 3, 7]
+10|0.849607(std:0.021661)|[0.2, 3, None, 3, 10]
+10|0.849607(std:0.021661)|[0.2, 3, None, 4, 7]
+10|0.849607(std:0.021661)|[0.2, 3, None, 4, 10]
+10|0.849607(std:0.021661)|[0.2, 3, None, 5, 7]
+10|0.849607(std:0.021661)|[0.2, 3, None, 5, 10]
+10|0.849607(std:0.021661)|[0.2, 3, None, 6, 7]
+10|0.849607(std:0.021661)|[0.2, 3, None, 6, 10]
+10|0.849607(std:0.020426)|[0.2, 4, None, 2, 7]
+10|0.849607(std:0.020426)|[0.2, 4, None, 3, 7]
+10|0.849607(std:0.020426)|[0.2, 4, None, 4, 7]
+10|0.849607(std:0.020426)|[0.2, 4, None, 5, 7]
+10|0.849607(std:0.020426)|[0.2, 4, None, 6, 7]
+10|0.849607(std:0.018378)|[0.2, 4, 'log2', 5, 7]
+
+
+
+
+# 
+
 
 ----
 
@@ -948,35 +1284,3 @@ Rank|Score(std)|Params ['randomforestclassifier__max_depth', 'randomforestclassi
 
 
 --------------
-
-best parameters: {'randomforestclassifier__max_depth': 6, 'randomforestclassifier__max_features': 'log2', 'randomforestclassifier__min_samples_split': 4, 'randomforestclassifier__n_estimators': 50}
-Mean cross-validated score of the best_estimator:  0.8489932885906041
-test:  0.823728813559322
-confusion matrix:  [[155  20]
- [ 32  88]]
-
-Rank|Score(std)|Params ['randomforestclassifier__max_depth', 'randomforestclassifier__max_features', 'randomforestclassifier__min_samples_split', 'randomforestclassifier__n_estimators']
-1|0.848993(std:0.046491)|[6, 'log2', 4, 50]
-2|0.843960(std:0.039970)|[6, 'log2', 4, 100]
-3|0.842282(std:0.041300)|[7, 'log2', 7, 200]
-4|0.840604(std:0.040881)|[6, 'sqrt', 2, 300]
-4|0.840604(std:0.044927)|[6, 'log2', 4, 60]
-4|0.840604(std:0.042264)|[7, 'sqrt', 9, 50]
-4|0.840604(std:0.032248)|[8, 1, 3, 40]
-4|0.840604(std:0.034719)|[8, 'sqrt', 7, 20]
-9|0.838926(std:0.037778)|[6, 'sqrt', 2, 100]
-9|0.838926(std:0.037009)|[6, 'sqrt', 6, 300]
-9|0.838926(std:0.037778)|[6, 'sqrt', 7, 500]
-9|0.838926(std:0.039189)|[6, 'log2', 3, 100]
-9|0.838926(std:0.037403)|[6, 'log2', 4, 300]
-9|0.838926(std:0.037403)|[6, 'log2', 7, 500]
-9|0.838926(std:0.041016)|[6, 'log2', 9, 200]
-9|0.838926(std:0.039335)|[7, 'log2', 3, 40]
-9|0.838926(std:0.037935)|[8, 1, 7, 500]
-9|0.838926(std:0.035690)|[8, 1, 9, 500]
-
-
-
-SelectPercentile(percentile=50)
-
-
