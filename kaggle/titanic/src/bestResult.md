@@ -1541,6 +1541,224 @@ variable 	importance
 
 
 
+# 17 gradient boosting
+
+from my best score's feature, activate some other features
+
+only Title and Age*Class was activated
+
+0.81339
+by gradient boosting
+Age 	FamilySize 	Family_Survival 	Fare 	PassengerId 	Pclass 	Sex
+
+->
+
+
+
+- age
+  - [x] 5 age band
+  - [ ] 10 age band
+- [ ] Age_Null_Flag
+- family
+  - [x] familysize
+  - [ ] parch,sib
+  - [ ] isalone
+- [ ] embarked
+  - [ ] integer encoding
+  - [ ] one hot encoding
+- [x] Title
+  - [ ] keep rare title and integer encoding
+  - [ ] change rare title to "Rare" and integer encoding
+  - [ ] change rare title to "Rare" and one hot encoding
+  - [x] change some rare title to usual title, other rare title to "Rare" and one hot encoding
+- [ ] Name_Len
+- [ ] Ticket_Len
+- [ ] Cabin_Letter
+  - [ ] integer encoding
+  - [ ] one hot encoding
+- [ ] Cabin_Num
+  - [ ] no
+  - [ ] integer encoding
+  - [ ] one hot encoding
+- [x] Age*Class
+- [x] Fare
+  - [x] 4 band
+- [x] Family_Survival
+
+
+
+
+## eval model
+
+best parameters: {'learning_rate': 0.01, 'max_depth': 6, 'max_features': 'sqrt', 'min_samples_split': 4, 'n_estimators': 300}
+Mean cross-validated score of the best_estimator:  0.8506711409395973
+test:  0.847457627118644
+confusion matrix:  [[160  15]
+ [ 30  90]]
+
+Rank|Score(std)|Params ['learning_rate', 'max_depth', 'max_features', 'min_samples_split', 'n_estimators']
+1|0.850671(std:0.033308)|[0.01, 6, 'sqrt', 4, 300]
+1|0.850671(std:0.030291)|[0.01, 6, 'sqrt', 6, 300]
+1|0.850671(std:0.033308)|[0.01, 6, 'log2', 5, 300]
+1|0.850671(std:0.029288)|[0.05, 6, 'sqrt', 6, 50]
+5|0.848993(std:0.031904)|[0.007, 6, 'log2', 2, 400]
+5|0.848993(std:0.039840)|[0.02, 5, 'log2', 3, 100]
+5|0.848993(std:0.031796)|[0.02, 7, 'log2', 5, 100]
+5|0.848993(std:0.028620)|[0.05, 6, 'sqrt', 5, 50]
+5|0.848993(std:0.028620)|[0.05, 6, 'log2', 5, 50]
+10|0.847315(std:0.032691)|[0.005, 5, 'sqrt', 3, 300]
+10|0.847315(std:0.044367)|[0.005, 5, 'sqrt', 5, 400]
+10|0.847315(std:0.032691)|[0.005, 5, 'log2', 3, 300]
+10|0.847315(std:0.036017)|[0.005, 5, 'log2', 3, 400]
+10|0.847315(std:0.032691)|[0.005, 5, 'log2', 4, 300]
+10|0.847315(std:0.028982)|[0.005, 6, 'log2', 6, 400]
+10|0.847315(std:0.032257)|[0.007, 5, 'sqrt', 2, 300]
+10|0.847315(std:0.032691)|[0.007, 5, 'log2', 2, 200]
+10|0.847315(std:0.032691)|[0.007, 5, 'log2', 3, 200]
+10|0.847315(std:0.036017)|[0.007, 5, 'log2', 3, 300]
+10|0.847315(std:0.032257)|[0.007, 6, 'sqrt', 2, 200]
+10|0.847315(std:0.026270)|[0.007, 6, 'log2', 5, 500]
+10|0.847315(std:0.028982)|[0.01, 5, 'sqrt', 2, 200]
+10|0.847315(std:0.032257)|[0.01, 5, 'sqrt', 2, 300]
+10|0.847315(std:0.036017)|[0.01, 5, 'sqrt', 4, 200]
+10|0.847315(std:0.032257)|[0.01, 5, 'log2', 2, 300]
+10|0.847315(std:0.036017)|[0.01, 5, 'log2', 4, 200]
+10|0.847315(std:0.030576)|[0.01, 5, 'log2', 6, 500]
+10|0.847315(std:0.033040)|[0.01, 6, 'sqrt', 5, 200]
+10|0.847315(std:0.030229)|[0.01, 6, 'log2', 3, 300]
+10|0.847315(std:0.026869)|[0.01, 6, 'log2', 4, 300]
+10|0.847315(std:0.028338)|[0.01, 6, 'log2', 6, 300]
+10|0.847315(std:0.030229)|[0.05, 7, 'log2', 6, 50]
+10|0.847315(std:0.027157)|[0.1, 3, 'sqrt', 6, 10]
+10|0.847315(std:0.036334)|[0.2, 4, 'sqrt', 2, 50]
+10|0.847315(std:0.033615)|[0.2, 7, 'sqrt', 3, 10]
+
+variable 	importance
+3 	Family_Survival 	0.156077
+10 	Title_Mr 	0.134597
+2 	FamilySize 	0.124868
+6 	Sex 	0.120565
+1 	Age*Class 	0.101800
+5 	Pclass 	0.100482
+4 	Fare 	0.096184
+0 	Age 	0.058360
+11 	Title_Mrs 	0.045163
+9 	Title_Miss 	0.036238
+8 	Title_Master 	0.013085
+12 	Title_Rev 	0.006587
+7 	Title_Dr 	0.005995
+
+
+
+## submission
+
+
+best parameters: {'learning_rate': 0.005, 'max_depth': 4, 'max_features': 'sqrt', 'min_samples_split': 2, 'n_estimators': 300}
+Mean cross-validated score of the best_estimator:  0.8540965207631874
+Rank|Score(std)|Params ['learning_rate', 'max_depth', 'max_features', 'min_samples_split', 'n_estimators']
+1|0.854097(std:0.019683)|[0.005, 4, 'sqrt', 2, 300]
+1|0.854097(std:0.019683)|[0.005, 4, 'sqrt', 3, 300]
+1|0.854097(std:0.019683)|[0.005, 4, 'sqrt', 5, 300]
+1|0.854097(std:0.019683)|[0.005, 4, 'log2', 2, 300]
+1|0.854097(std:0.019683)|[0.005, 4, 'log2', 3, 300]
+1|0.854097(std:0.019683)|[0.007, 4, 'log2', 2, 200]
+1|0.854097(std:0.019683)|[0.007, 4, 'log2', 4, 200]
+1|0.854097(std:0.020448)|[0.1, 4, 'sqrt', 3, 10]
+1|0.854097(std:0.019683)|[0.2, 5, 'sqrt', 4, 7]
+10|0.852974(std:0.018886)|[0.005, 4, 'sqrt', 4, 300]
+10|0.852974(std:0.019174)|[0.005, 4, 'log2', 4, 300]
+10|0.852974(std:0.018886)|[0.005, 4, 'log2', 5, 300]
+10|0.852974(std:0.018886)|[0.005, 4, 'log2', 6, 300]
+10|0.852974(std:0.021645)|[0.007, 4, 'sqrt', 4, 200]
+10|0.852974(std:0.018886)|[0.007, 4, 'sqrt', 5, 200]
+10|0.852974(std:0.018886)|[0.007, 4, 'log2', 3, 200]
+10|0.852974(std:0.018798)|[0.01, 4, 'log2', 6, 200]
+10|0.852974(std:0.018886)|[0.1, 4, 'log2', 6, 10]
+
+
+variable 	importance
+10 	Title_Mr 	0.210912
+6 	Sex 	0.192913
+3 	Family_Survival 	0.181704
+5 	Pclass 	0.108436
+1 	Age*Class 	0.063053
+11 	Title_Mrs 	0.059279
+2 	FamilySize 	0.058998
+9 	Title_Miss 	0.041856
+4 	Fare 	0.039237
+0 	Age 	0.017047
+8 	Title_Master 	0.014967
+12 	Title_Rev 	0.009474
+7 	Title_Dr 	0.002124
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------------------------
+
+
+# 17 gradient boosting
+
+from my best score's feature, activate some other features
+
+only Age*Class was activated
+
+0.81339
+by gradient boosting
+Age 	FamilySize 	Family_Survival 	Fare 	PassengerId 	Pclass 	Sex
+
+->
+
+
+
+- age
+  - [x] 5 age band
+  - [ ] 10 age band
+- [ ] Age_Null_Flag
+- family
+  - [x] familysize
+  - [ ] parch,sib
+  - [ ] isalone
+- [ ] embarked
+  - [ ] integer encoding
+  - [ ] one hot encoding
+- [ ] Title
+  - [ ] keep rare title and integer encoding
+  - [ ] change rare title to "Rare" and integer encoding
+  - [ ] change rare title to "Rare" and one hot encoding
+  - [ ] change some rare title to usual title, other rare title to "Rare" and one hot encoding
+- [ ] Name_Len
+- [ ] Ticket_Len
+- [ ] Cabin_Letter
+  - [ ] integer encoding
+  - [ ] one hot encoding
+- [ ] Cabin_Num
+  - [ ] no
+  - [ ] integer encoding
+  - [ ] one hot encoding
+- [x] Age*Class
+- [x] Fare
+  - [x] 4 band
+- [x] Family_Survival
+
+
+
+
+## eval model
+
+## submission
 
 
 
@@ -1573,28 +1791,9 @@ variable 	importance
 
 
 
+## eval model
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-------------------------------------------------------------------------------------------------------
-
-
-
-
-
-
-
+## submission
 
 
 
@@ -1622,6 +1821,64 @@ variable 	importance
 
 
 
+
+## eval model
+
+## submission
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+## eval model
+
+## submission
+
+
+
+
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+## eval model
+
+## submission
 
 
 
