@@ -1713,13 +1713,23 @@ variable 	importance
 
 from my best score's feature, activate some other features
 
-only Age*Class was activated
+- only Age*Class was activated
+- fill missing Fare in test_df by median of Pclass
+  - but this will not effect, because anytime 1044 was predicted as not Survived.
+  - other feature determine he was dead.
+
+PassengerId 	Pclass 	Name 	Sex 	Age 	SibSp 	Parch 	Ticket 	Fare 	Cabin 	Embarked
+152 	1044 	3 	Storey, Mr. Thomas 	male 	60.5 	0 	0 	3701 	NaN 	NaN 	S
+
+
 
 0.81339
 by gradient boosting
 Age 	FamilySize 	Family_Survival 	Fare 	PassengerId 	Pclass 	Sex
 
 ->
+
+**0.81818**
 
 
 
@@ -1758,16 +1768,76 @@ Age 	FamilySize 	Family_Survival 	Fare 	PassengerId 	Pclass 	Sex
 
 ## eval model
 
+best parameters: {'learning_rate': 0.05, 'max_depth': 3, 'max_features': 'log2', 'min_samples_split': 4, 'n_estimators': 100}
+Mean cross-validated score of the best_estimator:  0.837248322147651
+test:  0.8542372881355932
+confusion matrix:  [[164  11]
+ [ 32  88]]
+
+Rank|Score(std)|Params ['learning_rate', 'max_depth', 'max_features', 'min_samples_split', 'n_estimators']
+1|0.837248(std:0.035970)|[0.05, 3, 'log2', 4, 100]
+1|0.837248(std:0.027764)|[0.05, 5, 'log2', 5, 100]
+1|0.837248(std:0.033065)|[0.1, 3, 'sqrt', 6, 50]
+1|0.837248(std:0.039018)|[0.1, 3, 'log2', 5, 50]
+5|0.835570(std:0.030142)|[0.007, 5, 'sqrt', 5, 500]
+5|0.835570(std:0.036758)|[0.01, 3, 'sqrt', 2, 500]
+5|0.835570(std:0.033502)|[0.02, 3, 'log2', 2, 300]
+5|0.835570(std:0.030142)|[0.02, 5, 'sqrt', 2, 200]
+5|0.835570(std:0.033280)|[0.1, 4, None, 5, 50]
+5|0.835570(std:0.031426)|[0.2, 5, 'sqrt', 5, 7]
+
+variable 	importance
+6 	Sex 	0.329089
+3 	Family_Survival 	0.190390
+1 	Age*Class 	0.132186
+5 	Pclass 	0.109928
+2 	FamilySize 	0.106728
+4 	Fare 	0.079120
+0 	Age 	0.052558
+
 ## submission
 
 
 
+best parameters: {'learning_rate': 0.005, 'max_depth': 3, 'max_features': None, 'min_samples_split': 2, 'n_estimators': 200}
+Mean cross-validated score of the best_estimator:  0.8473625140291807
+Rank|Score(std)|Params ['learning_rate', 'max_depth', 'max_features', 'min_samples_split', 'n_estimators']
+1|0.847363(std:0.018459)|[0.005, 3, None, 2, 200]
+1|0.847363(std:0.018459)|[0.005, 3, None, 3, 200]
+1|0.847363(std:0.018459)|[0.005, 3, None, 4, 200]
+1|0.847363(std:0.018459)|[0.005, 3, None, 5, 200]
+1|0.847363(std:0.018459)|[0.005, 3, None, 6, 200]
+1|0.847363(std:0.018696)|[0.007, 3, None, 6, 500]
+1|0.847363(std:0.018459)|[0.01, 3, None, 2, 100]
+1|0.847363(std:0.018696)|[0.01, 3, None, 2, 300]
+1|0.847363(std:0.018459)|[0.01, 3, None, 3, 100]
+1|0.847363(std:0.018696)|[0.01, 3, None, 3, 300]
+1|0.847363(std:0.018459)|[0.01, 3, None, 4, 100]
+1|0.847363(std:0.018459)|[0.01, 3, None, 5, 100]
+1|0.847363(std:0.018459)|[0.01, 3, None, 6, 100]
+1|0.847363(std:0.018459)|[0.02, 3, None, 2, 50]
+1|0.847363(std:0.018459)|[0.02, 3, None, 3, 50]
+1|0.847363(std:0.018459)|[0.02, 3, None, 4, 50]
+1|0.847363(std:0.018459)|[0.02, 3, None, 5, 50]
+1|0.847363(std:0.018459)|[0.02, 3, None, 6, 50]
+1|0.847363(std:0.018459)|[0.1, 3, None, 2, 10]
+1|0.847363(std:0.018459)|[0.1, 3, None, 3, 10]
+1|0.847363(std:0.018459)|[0.1, 3, None, 4, 10]
+1|0.847363(std:0.018459)|[0.1, 3, None, 5, 10]
+1|0.847363(std:0.018459)|[0.1, 3, None, 6, 10]
 
 
 
 
 
-
+variable 	importance
+6 	Sex 	0.564469
+3 	Family_Survival 	0.195352
+5 	Pclass 	0.146711
+1 	Age*Class 	0.052570
+2 	FamilySize 	0.030484
+0 	Age 	0.009835
+4 	Fare 	0.000579
 
 
 
